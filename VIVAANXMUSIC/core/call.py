@@ -52,7 +52,14 @@ vc_join_call_map = {}
 vc_join_event_cache = {}
 vc_join_notice_cache = {}
 
+def validate_stream_path(path: str) -> str:
+    if path is None or (isinstance(path, str) and not path.strip()):
+        raise AssistantErr("Unable to prepare stream source. Please try again.")
+    return path
+
+
 def dynamic_media_stream(path: str, video: bool = False, ffmpeg_params: str = None) -> MediaStream:
+    path = validate_stream_path(path)
     return MediaStream(
         audio_path=path,
         media_path=path,
