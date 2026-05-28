@@ -689,6 +689,22 @@ class Call:
             (dropped or {}).get("vidid") or (dropped or {}).get("title") or "unknown",
             reason,
         )
+        if dropped:
+            try:
+                await app.send_message(
+                    config.LOGGER_ID,
+                    (
+                        "Music Bot FAILURE LOG\n\n"
+                        "AREA : Queue Playback\n"
+                        f"REASON : {reason}\n"
+                        f"QUERY : {(dropped or {}).get('title') or 'Unknown Title'}\n"
+                        f"VIDEO ID : {(dropped or {}).get('vidid') or 'N/A'}\n"
+                        f"CHAT ID : {chat_id}"
+                    ),
+                    disable_web_page_preview=True,
+                )
+            except Exception:
+                pass
         return await self._stop_if_queue_empty(
             client,
             chat_id,
