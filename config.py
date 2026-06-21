@@ -10,7 +10,7 @@ load_dotenv()
 API_ID = int(getenv("API_ID", 27798659))
 API_HASH = getenv("API_HASH", "26100c77cee02e5e34b2bbee58440f86")
 BOT_TOKEN = getenv("BOT_TOKEN")
-
+YOUTUBE_API_KEY = getenv("YOUTUBE_API_KEY", "INFLEX80528428D")
 OWNER_ID = int(getenv("OWNER_ID", 924235973))
 OWNER_USERNAME = getenv("OWNER_USERNAME", "SexyProfessor")
 BOT_USERNAME = getenv("BOT_USERNAME", "SigmaaMusicBot")
@@ -52,7 +52,7 @@ HEROKU_APP_NAME = getenv("HEROKU_APP_NAME")
 HEROKU_API_KEY = getenv("HEROKU_API_KEY")
 
 # ── Git / updates ──────────────────────────────────────────────────────────────
-UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/spicycodez/NSMusic")
+UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/Swaggy77394/NSMusic")
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "main")
 GIT_TOKEN = getenv("GIT_TOKEN")  # needed if repo is private
 
@@ -72,7 +72,7 @@ SPOTIFY_CLIENT_ID = getenv("SPOTIFY_CLIENT_ID", "22b6125bfe224587b722d6815002db2
 SPOTIFY_CLIENT_SECRET = getenv("SPOTIFY_CLIENT_SECRET", "c9c63c6fbf2f467c8bc68624851e9773")
 
 # ── Session strings (optional) ─────────────────────────────────────────────────
-STRING1 = getenv("STRING_SESSION")
+STRING1 = getenv("STRING_SESSION", "")
 STRING2 = getenv("STRING_SESSION2")
 STRING3 = getenv("STRING_SESSION3")
 STRING4 = getenv("STRING_SESSION4")
@@ -80,23 +80,31 @@ STRING5 = getenv("STRING_SESSION5")
 
 # ── Media assets ───────────────────────────────────────────────────────────────
 START_VIDS = [
-    "https://files.catbox.moe/fu6jk3.jpg",
-    "https://files.catbox.moe/26nzoq.jpg",
-    "https://files.catbox.moe/26nzoq.jpg",
+    "https://files.catbox.moe/jf0yqq.jpg",
+          "https://files.catbox.moe/7w0ec2.jpg",
+          "https://files.catbox.moe/dfj1l8.jpg",
+          "https://files.catbox.moe/e7pbwj.jpg",
+          "https://files.catbox.moe/bta4qz.jpg",
+          "https://files.catbox.moe/1a1pu2.jpg",
+          "https://files.catbox.moe/xvirq4.jpg",
+          "https://files.catbox.moe/8dyj3u.jpg",
+          "https://files.catbox.moe/x63yfj.jpg",
+          "https://files.catbox.moe/3rtw9v.jpg",
+          "https://files.catbox.moe/0u6db2.jpg",
 ]
 STICKERS = [
     "CAACAgUAAx0Cd6nKUAACASBl_rnalOle6g7qS-ry-aZ1ZpVEnwACgg8AAizLEFfI5wfykoCR4h4E",
     "CAACAgUAAx0Cd6nKUAACATJl_rsEJOsaaPSYGhU7bo7iEwL8AAPMDgACu2PYV8Vb8aT4_HUPHgQ",
 ]
-HELP_IMG_URL = "https://files.catbox.moe/22oahi.jpg"
-PING_VID_URL = "https://files.catbox.moe/5z1qte.mp4"
-PLAYLIST_IMG_URL = "https://files.catbox.moe/u79q4y.jpg"
-STATS_VID_URL = "https://files.catbox.moe/uo4lc8.mp4"
-TELEGRAM_AUDIO_URL = "https://files.catbox.moe/eis7ei.jpg"
-TELEGRAM_VIDEO_URL = "https://files.catbox.moe/eis7ei.jpg"
-STREAM_IMG_URL = "https://files.catbox.moe/eis7ei.jpg"
-SOUNCLOUD_IMG_URL = "https://files.catbox.moe/eis7ei.jpg"
-YOUTUBE_IMG_URL = "https://files.catbox.moe/eis7ei.jpg"
+HELP_IMG_URL = "https://files.catbox.moe/dfj1l8.jpg"
+PING_VID_URL = "https://litter.catbox.moe/ks250k.jpg"
+PLAYLIST_IMG_URL = "https://files.catbox.moe/dfj1l8.jpg"
+STATS_VID_URL = "https://files.catbox.moe/y90zxi.jpg"
+TELEGRAM_AUDIO_URL = "https://files.catbox.moe/dfj1l8.jpg"
+TELEGRAM_VIDEO_URL = "https://files.catbox.moe/dfj1l8.jpg"
+STREAM_IMG_URL = "https://files.catbox.moe/dfj1l8.jpg"
+SOUNCLOUD_IMG_URL = "https://files.catbox.moe/dfj1l8.jpg"
+YOUTUBE_IMG_URL = "https://files.catbox.moe/dfj1l8.jpg"
 SPOTIFY_ARTIST_IMG_URL = SPOTIFY_ALBUM_IMG_URL = SPOTIFY_PLAYLIST_IMG_URL = YOUTUBE_IMG_URL
 
 # ── Helpers ────────────────────────────────────────────────────────────────────
@@ -108,7 +116,8 @@ DURATION_LIMIT = time_to_seconds(f"{DURATION_LIMIT_MIN}:00")
 # ───── Bot Introduction Messages ───── #
 AYU = ["💞", "🦋", "🔍", "🧪", "⚡️", "🔥", "🎩", "🌈", "🍷", "🥂", "🥃", "🕊️", "🪄", "💌", "🧨"]
 AYUV = [
-    "✦ <b>ʜᴇʏ ʙᴧʙʏ {0}  ɴɪᴄᴇ ᴛᴏ ᴍᴇᴇᴛ ʏᴏᴜ 🥀</b>\n\n<b>⊚ ᴛʜɪꜱ ɪꜱ</b> <b>{1}</b>\n\n<b>➻ ᴧ ᴘʀᴇᴍɪᴜᴍ ᴅᴇsɪɢɴᴇᴅ ᴍᴜꜱɪᴄ ᴘʟᴧʏᴇʀ ʙᴏᴛ ꜰᴏʀ ᴛᴇʟᴇɢʀᴧᴍ ɢʀᴏᴜᴘ & ᴄʜᴧɴɴᴇʟ.</b>\n\n<b>:⧽ ɪꜰ ʏᴏᴜ ᴡᴧɴᴛ ᴧɴʏ ʜᴇʟᴘ ᴛᴧᴘ тᴏ ʜᴇʟᴘ ʙᴜᴛᴛᴏɴ ꜰᴏʀ ᴍʏ ᴍᴏᴅᴜʟᴇꜱ.</b>\n<b>⊚ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➛ <a href=\"https://t.me/SpicyxNetwork\">˹sᴘɪᴄʏ ɴᴇᴛᴡᴏʀᴋ˼</a></b>",
+    "<b>✦ ʜᴇʏ ʙᴧʙʏ {0} ɴɪᴄᴇ ᴛᴏ ᴍᴇᴇᴛ ʏᴏᴜ 🥀\n\n⊚ ᴛʜɪꜱ ɪꜱ {1} ♪\n\n➻ ᴧ ᴘʀᴇᴍɪᴜᴍ ᴅᴇsɪɢɴᴇᴅ ᴍᴜꜱɪᴄ ᴘʟᴧʏᴇʀ ʙᴏᴛ ꜰᴏʀ ᴛᴇʟᴇɢʀᴧᴍ ɢʀᴏᴜᴘ & ᴄʜᴧɴɴᴇʟ.\n\n:⧽ ɪꜰ ʏᴏᴜ ᴡᴧɴᴛ ᴧɴʏ ʜᴇʟᴘ ᴛᴧᴘ тᴏ ʜᴇʟᴘ ʙᴜᴛᴛᴏɴ ꜰᴏʀ ᴍʏ ᴍᴏᴅᴜʟᴇꜱ.\n⊚ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➛ <a href='https://t.me/SpicyxNetwork'>˹sᴘɪᴄʏ ɴᴇᴛᴡᴏʀᴋ˼</a></b>",
+    "<b>✦ ʜᴇʏ ʙᴧʙʏ {0} ɴɪᴄᴇ ᴛᴏ ᴍᴇᴇᴛ ʏᴏᴜ 🥀\n\n⊚ ᴛʜɪꜱ ɪꜱ {1} ♪\n\n➻ ᴧ ᴘʀᴇᴍɪᴜᴍ ᴅᴇsɪɢɴᴇᴅ ᴍᴜꜱɪᴄ ᴘʟᴧʏᴇʀ ʙᴏᴛ ꜰᴏʀ ᴛᴇʟᴇɢʀᴧᴍ ɢʀᴏᴜᴘ & ᴄʜᴧɴɴᴇʟ.\n\n:⧽ ɪꜰ ʏᴏᴜ ᴡᴧɴᴛ ᴧɴʏ ʜᴇʟᴘ ᴛᴧᴘ тᴏ ʜᴇʟᴘ ʙᴜᴛᴛᴏɴ ꜰᴏʀ ᴍʏ ᴍᴏᴅᴜʟᴇꜱ.\n⊚ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➛ <a href='https://t.me/SpicyxNetwork'>˹sᴘɪᴄʏ ɴᴇᴛᴡᴏʀᴋ˼</a></b>",
 ]
 
 # ── Runtime structures ─────────────────────────────────────────────────────────
@@ -121,4 +130,3 @@ if SUPPORT_CHANNEL and not re.match(r"^https?://", SUPPORT_CHANNEL):
 
 if SUPPORT_CHAT and not re.match(r"^https?://", SUPPORT_CHAT):
     raise SystemExit("[ERROR] - Invalid SUPPORT_CHAT URL. Must start with https://")
-
