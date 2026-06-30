@@ -764,28 +764,62 @@ class Call:
         except:
             try:
                 await _clear_(chat_id)
-                return await client.leave_call(chat_id)
-            except:
-                return
-        while True:
-            check = db.get(chat_id)
-            if not check:
-                await self._stop_if_queue_empty(
-                    client,
-                    chat_id,
-                    allow_autoplay=False,
-                )
-                return
 
-            current = check[0]
-            if not isinstance(current, dict):
-                if await self._discard_unplayable_queue_head(
-                    client,
-                    chat_id,
-                    "malformed queue item",
-                ):
-                    return
-                continue
+            try:
+                    buttons = InlineKeyboardMarkup(
+                        [
+                            [
+                                                                InlineKeyboardButton(
+                                    "✙ ʌᴅᴅ ϻє вᴧʙʏ ✙", url=f"https://t.me/{app.username}?startgroup=true"
+                                )],
+                            [
+                                InlineKeyboardButton(
+                                    "⋞ ᴄʟᴏsє ⋟", callback_data="close_message"
+                                ),
+                            ]
+                        ]
+                    )
+                    await app.send_message(
+    chat_id,
+    """
+🎵 𝐓ʜᴇ 𝐌ᴜsɪᴄ 𝐐ᴜᴇᴜᴇ 𝐇ᴀ𝐬 𝐄ɴᴅᴇᴅ.
+➤ 𝐔𝐬𝐞 /play 𝐓𝐨 𝐀𝐝𝐝 𝐌𝐨𝐫𝐞 𝐒𝐨𝐧𝐠𝐬 🎶
+""",
+    reply_markup=buttons,
+)
+                except:
+                    pass
+                return await client.leave_call(chat_id, close=False)
+        except Exception:
+            try:
+                await _clear_(chat_id)
+                try:
+                    buttons = InlineKeyboardMarkup(
+                        [
+                            [
+                                                                InlineKeyboardButton(
+                                    "✙ ʌᴅᴅ ϻє вᴧʙʏ ✙", url=f"https://t.me/{app.username}?startgroup=true"
+                                )],
+                            [
+                                InlineKeyboardButton(
+                                    "⋞ ᴄʟᴏsє ⋟", callback_data="close_message"
+                                ),
+                            ]
+                        ]
+                    )
+                    await app.send_message(
+    chat_id,
+    """
+🎵 𝐓ʜᴇ 𝐌ᴜsɪᴄ 𝐐ᴜᴇᴜᴇ 𝐇ᴀ𝐬 𝐄ɴᴅᴇᴅ.
+➤ 𝐔𝐬𝐞 /play 𝐓𝐨 𝐀𝐝𝐝 𝐌𝐨𝐫𝐞 𝐒𝐨𝐧𝐠𝐬 🎶
+""",
+    reply_markup=buttons,
+)
+                except:
+                    pass
+                return await client.leave_call(chat_id, close=False)
+            except Exception:
+                return
 
             queued = current.get("file")
             language = await get_lang(chat_id)
