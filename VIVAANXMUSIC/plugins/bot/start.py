@@ -163,7 +163,7 @@ async def start_gp(client, message: Message, _):
         await message.reply_photo(
             random.choice(START_VIDS),
             caption=_["start_1"].format(app.mention, get_readable_time(uptime)),
-            reply_markup=InlineKeyboardMarkup(out),
+            reply_markup=key,
         )
     except:
         pass
